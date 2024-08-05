@@ -14,3 +14,4 @@ processed/
 
 # Ignore environment variables
 .env
+.venv
