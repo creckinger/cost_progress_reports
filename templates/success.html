@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/company_logo.png') }}" alt="Company Logo" class="logo">
+    <h1>Success</h1>
+    <p>Your files have been processed successfully!</p>
+    <p><a href="{{ url_for('download_file', filename=filename) }}">Download Processed Files</a></p>
+    <p><a href="{{ url_for('index') }}">Start a New Run</a></p>
+</body>
+</html>

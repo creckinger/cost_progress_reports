@@ -1,0 +1,16 @@
+# Ignore virtual environments
+env/
+venv/
+
+# Ignore Python Cache Files
+__pycache__/
+
+# Ignore data files
+data/
+uploads/
+processed/
+*.csv
+*.xlsx
+
+# Ignore environment variables
+.env

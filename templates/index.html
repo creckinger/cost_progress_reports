@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ url_for('static', filename='images/company_logo.png') }}" alt="Company Logo" class="logo">
+    <h1>Cost Progress Reports - version 1.1</h1>
+    <h2>Upload File</h2>
+    <p><a href="{{ url_for('download_template') }}">Download Template File</a></p>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="file">Select file:</label>
+        <input type="file" name="file" id="file"><br><br>
+
+        <label for="language">Select language:</label>
+        <select name="language" id="language">
+            <option value="english">English</option>
+            <option value="french" selected>French</option>
+            <option value="german">German</option>
+        </select><br><br>
+
+        <label for="prorata_base">Select prorata base:</label>
+        <select name="prorata_base" id="prorata_base">
+            <option value="htva">HTVA</option>
+            <option value="ttc">TTC</option>
+        </select><br><br>
+
+        <input type="submit" value="Generate E.A.">
+    </form>
+</body>
+</html>

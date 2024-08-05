@@ -1,0 +1,75 @@
+sudo apk update
+sudo apk add docker
+sudo rc-update add docker boot
+sudo service docker start
+
+
+Transfer Docker Image to Alpine Linux Server:
+There are a couple of ways to transfer your Docker image to the Alpine Linux server.
+
+Save the Docker image to a file on your Mac:
+
+sh
+Copy code
+docker save -o cprapp.tar cprapp
+Transfer the file to your Alpine Linux server using scp:
+
+sh
+Copy code
+scp cprapp.tar user@your_alpine_server_ip:/path/to/directory
+On your Alpine Linux server, load the Docker image:
+
+sh
+Copy code
+docker load -i /path/to/directory/cprapp.tar
+
+
+
+
+Sure! Given that your Docker image is configured to expose port 5000 and run the Gunicorn server on that port, I'll adapt the steps accordingly.
+
+Adapted Steps for Deploying Docker Container
+Save the Docker Image on Mac:
+Save your Docker image to a tar file:
+
+sh
+Copy code
+docker save -o cprapp.tar cprapp
+Transfer the Docker Image to Alpine Linux Server:
+Use scp to transfer the Docker image file to your home directory on the Alpine Linux server:
+
+sh
+Copy code
+scp cprapp.tar root@192.168.200.88:~
+Replace user with your actual username on the Alpine Linux server and your_alpine_server_ip with the server's IP address.
+
+SSH into Your Alpine Linux Server:
+Log in to your Alpine Linux server using SSH:
+
+sh
+Copy code
+ssh root@192.168.200.88
+Load the Docker Image on Alpine Linux Server:
+Load the Docker image from the tar file:
+
+sh
+Copy code
+docker load -i ~/cprapp.tar
+Run the Docker Container on Alpine Linux Server:
+Run the Docker container using the loaded image, mapping the host's port 5000 to the container's port 5000:
+
+sh
+Copy code
+docker run -d -p 5000:5000 --name cprapp cprapp
+Configure Firewall Rules on Alpine Linux Server:
+Ensure the firewall allows incoming connections on port 5000. For example, using iptables:
+
+sh
+Copy code
+sudo iptables -A INPUT -p tcp --dport 5000 -j ACCEPT
+Access the Application:
+Open a web browser on any computer within the network and navigate to the IP address of your Alpine Linux server:
+
+sh
+Copy code
+http://your_alpine_server_ip:5000
