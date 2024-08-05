@@ -20,7 +20,22 @@ sudo service docker start
 - Load the file inside the linux server: docker load -i /path/to/directory/cprapp.tar
 - Run the app inside the docker container in linux: docker run -d -p 5000:5000 --name cprapp cprapp
 
-cprapp = cost progress reports app
+### Update a running Docker App
+List Running Containers:
+Find the running container with the name cprapp.
+docker ps
+
+Stop the Existing Container:
+Stop the container using its container ID or name.
+docker stop cprapp
+
+Remove the Existing Container:
+Remove the stopped container.
+docker rm cprapp
+
+Run the New Container:
+Now you can run the new version of your Docker image.
+docker run -d -p 5000:5000 --name cprapp cprapp:latest
 
 
 
