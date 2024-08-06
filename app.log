@@ -570,3 +570,19 @@
 2024-08-05 15:28:44,674 - 127.0.0.1 - - [05/Aug/2024 15:28:44] "GET /success?filename=EA-VILLAPETRUSSE-PEINTURE-BASE_EA_2024-08-05T152844.zip HTTP/1.1" 200 -
 2024-08-05 15:28:44,691 - 127.0.0.1 - - [05/Aug/2024 15:28:44] "[36mGET /static/images/company_logo.png HTTP/1.1[0m" 304 -
 2024-08-05 15:28:45,859 - 127.0.0.1 - - [05/Aug/2024 15:28:45] "GET /download/EA-VILLAPETRUSSE-PEINTURE-BASE_EA_2024-08-05T152844.zip HTTP/1.1" 200 -
+2024-08-06 21:57:27,186 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.199:5001
+2024-08-06 21:57:27,187 - [33mPress CTRL+C to quit[0m
+2024-08-06 21:57:27,188 -  * Restarting with stat
+2024-08-06 21:57:27,932 -  * Debugger is active!
+2024-08-06 21:57:27,947 -  * Debugger PIN: 426-976-301
+2024-08-06 21:57:38,067 - 127.0.0.1 - - [06/Aug/2024 21:57:38] "GET / HTTP/1.1" 200 -
+2024-08-06 21:57:38,112 - 127.0.0.1 - - [06/Aug/2024 21:57:38] "GET /static/images/company_logo.png HTTP/1.1" 200 -
+2024-08-06 21:57:38,249 - 127.0.0.1 - - [06/Aug/2024 21:57:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-08-06 21:57:46,574 - Computer: Christophs-MBP.localdomain, IP: 127.0.0.1, Date: 2024-08-06 21:57:46, Filepath: uploads/EA-LFB-BAD1_1.xlsx, Language: french, Prorata Base: htva
+2024-08-06 21:57:46,953 - 127.0.0.1 - - [06/Aug/2024 21:57:46] "[32mPOST / HTTP/1.1[0m" 302 -
+2024-08-06 21:57:46,959 - 127.0.0.1 - - [06/Aug/2024 21:57:46] "GET /success?filename=EA-LFB-BAD1_1_EA_2024-08-06T215746.zip HTTP/1.1" 200 -
+2024-08-06 21:57:46,974 - 127.0.0.1 - - [06/Aug/2024 21:57:46] "[36mGET /static/images/company_logo.png HTTP/1.1[0m" 304 -
+2024-08-06 21:57:48,432 - 127.0.0.1 - - [06/Aug/2024 21:57:48] "GET /download/EA-LFB-BAD1_1_EA_2024-08-06T215746.zip HTTP/1.1" 200 -

@@ -1,13 +1,14 @@
 """
-Version 1.0
+Version 1.1
 This script processes and generates progress reports for a construction project, using data from an Excel file.
+Improved rounding
 """
 
 import pandas as pd
 from pathlib import Path
 from datetime import date
 import xlsxwriter
-from decimal import Decimal, ROUND_HALF_UP
+import decimal
 import math
 
 # USER INPUTS
@@ -103,36 +104,18 @@ translations = {
 
 # Define rounding function
 def round_half_up(n, decimals=2):
-    factor = 10 ** decimals
+    # Set the precision high enough to handle the multiplication accurately
+    decimal.getcontext().prec = 10
+    decimal.getcontext().rounding = decimal.ROUND_HALF_UP
+    
+    # Perform the multiplication using Decimal
+    n = decimal.Decimal(str(n))
+    factor = decimal.Decimal(10) ** decimals
     shifted = n * factor
-    integer_part = int(shifted)
-    decimal_part = shifted - integer_part
-
-    if decimal_part == 0:
-        rounded_value = integer_part
-    elif decimal_part >= 0.5:
-        # Rounding against the direction of zero
-        if shifted > 0:
-            rounded_value = integer_part + 1
-        else:
-            rounded_value = integer_part - 1
-    elif decimal_part > 0:
-        # Rounding in the direction of zero
-        rounded_value = integer_part
-    elif decimal_part > -0.5:
-        # Rounding in the direction of zero
-        if shifted > 0:
-            rounded_value = integer_part
-        else:
-            rounded_value = integer_part + 1
-    else:
-        # Rounding against the direction of zero
-        if shifted > 0:
-            rounded_value = integer_part - 1
-        else:
-            rounded_value = integer_part - 1
-
-    return rounded_value / factor
+    
+    # Round the shifted value
+    rounded_value = shifted.to_integral_value()
+    return float(rounded_value / factor)
 
 
 # Convert percentage to integer
